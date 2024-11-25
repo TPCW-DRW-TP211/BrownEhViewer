@@ -9,6 +9,10 @@ jobs:
   linux:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      releases: write
+      issues: write
     steps:
       - uses: actions/checkout@v2
       - name: Enable Unsecure Command `set-env` set Environment variable
