@@ -27,6 +27,8 @@ jobs:
           ALIAS_NAME: ${{ secrets.ALIAS_NAME }}
           ALIAS_PASS: ${{ secrets.ALIAS_PASS }}
         run: |
+          git submodule init
+          git submodule update
           ./gradlew assembleRelease
           echo ::set-env name=APK_FILE::$(find app/build/outputs/apk -name "*.apk")
       - name: Create Release
